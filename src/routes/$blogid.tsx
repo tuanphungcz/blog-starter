@@ -13,8 +13,11 @@ export const Route = createFileRoute("/$blogid")({
       { property: "og:title", content: post.title },
       { property: "og:description", content: post.summary },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: `${siteConfig.url}/${params.blogid}` },
+      { property: "og:image", content: `${siteConfig.url}/og/${params.blogid}` },
       { name: "twitter:title", content: post.title },
       { name: "twitter:description", content: post.summary },
+      { name: "twitter:image", content: `${siteConfig.url}/og/${params.blogid}` },
     ];
 
     if (post.publishedAt) {
