@@ -8,8 +8,5 @@ compatibility_flags = ["nodejs_compat"]
 #   { pattern = "yourdomain.com/*", zone_name = "yourdomain.com" }
 # ]
 
-[build]
-command = "npm run build"
-
 [observability]
 enabled = true

@@ -12,7 +12,7 @@ function hashOgVersion(seed: string): string {
 }
 
 function buildOgImageUrl(siteUrl: string, slug: string, versionSeed: string) {
-  const url = new URL(`/og/${slug}`, siteUrl);
+  const url = new URL(`/og/${slug}.png`, siteUrl);
   url.searchParams.set("v", hashOgVersion(versionSeed));
   return url.toString();
 }
