@@ -48,26 +48,35 @@ function HomePage() {
                         {post.title}
                       </Link>
                     </h3>
-                    {(formattedDate || post.tags.length > 0) && (
-                      <div className="mt-2 flex flex-wrap items-center gap-x-2">
-                        {formattedDate && (
-                          <time className="text-sm text-gray-400 dark:text-gray-500">
-                            {formattedDate}
-                          </time>
-                        )}
-                        {formattedDate && post.tags.length > 0 && (
+                    <div className="mt-2 flex flex-wrap items-center gap-x-2">
+                      {formattedDate && (
+                        <time className="text-sm text-gray-400 dark:text-gray-500">
+                          {formattedDate}
+                        </time>
+                      )}
+                      {formattedDate && (
+                        <>
                           <span className="text-gray-300 dark:text-gray-600">·</span>
-                        )}
-                        {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-sm text-gray-400 dark:text-gray-500"
-                          >
-                            #{tag}
+                          <span className="text-sm text-gray-400 dark:text-gray-500">
+                            {post.readingTime} min read
                           </span>
-                        ))}
-                      </div>
-                    )}
+                        </>
+                      )}
+                      {post.tags.length > 0 && (
+                        <span className="text-gray-300 dark:text-gray-600">·</span>
+                      )}
+                      {post.tags.map((tag) => (
+                        <Link
+                          key={tag}
+                          to="/tags/$tag"
+                          params={{ tag }}
+                          className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          #{tag}
+                        </Link>
+                      ))}
+                    </div>
                     {post.summary && (
                       <p className="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
                         {post.summary}

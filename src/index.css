@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "highlight.js/styles/github.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -47,3 +48,26 @@
   font-size: 0.875em;
   font-weight: 400;
 }
+
+/* Dark mode: override highlight.js colors */
+.dark .hljs {
+  color: #c9d1d9;
+  background: transparent;
+}
+.dark .hljs-keyword,
+.dark .hljs-selector-tag { color: #ff7b72; }
+.dark .hljs-string,
+.dark .hljs-attr { color: #a5d6ff; }
+.dark .hljs-comment,
+.dark .hljs-doctag { color: #8b949e; }
+.dark .hljs-number,
+.dark .hljs-literal { color: #79c0ff; }
+.dark .hljs-title,
+.dark .hljs-section { color: #d2a8ff; }
+.dark .hljs-built_in { color: #ffa657; }
+.dark .hljs-type,
+.dark .hljs-params { color: #ffa657; }
+.dark .hljs-variable,
+.dark .hljs-template-variable { color: #ffa657; }
+.dark .hljs-addition { color: #aff5b4; background: #033a16; }
+.dark .hljs-deletion { color: #ffdcd7; background: #67060c; }

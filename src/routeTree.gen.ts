@@ -9,9 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as FeedDotxmlRouteImport } from './routes/feed[.]xml'
 import { Route as BlogidRouteImport } from './routes/$blogid'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TagsIndexRouteImport } from './routes/tags/index'
+import { Route as TagsTagRouteImport } from './routes/tags/$tag'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedDotxmlRoute = FeedDotxmlRouteImport.update({
+  id: '/feed.xml',
+  path: '/feed.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogidRoute = BlogidRouteImport.update({
   id: '/$blogid',
   path: '/$blogid',
@@ -22,35 +42,108 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TagsIndexRoute = TagsIndexRouteImport.update({
+  id: '/tags/',
+  path: '/tags/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TagsTagRoute = TagsTagRouteImport.update({
+  id: '/tags/$tag',
+  path: '/tags/$tag',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$blogid': typeof BlogidRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tags/$tag': typeof TagsTagRoute
+  '/tags/': typeof TagsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$blogid': typeof BlogidRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tags/$tag': typeof TagsTagRoute
+  '/tags': typeof TagsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$blogid': typeof BlogidRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tags/$tag': typeof TagsTagRoute
+  '/tags/': typeof TagsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$blogid'
+  fullPaths:
+    | '/'
+    | '/$blogid'
+    | '/feed.xml'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/tags/$tag'
+    | '/tags/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$blogid'
-  id: '__root__' | '/' | '/$blogid'
+  to:
+    | '/'
+    | '/$blogid'
+    | '/feed.xml'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/tags/$tag'
+    | '/tags'
+  id:
+    | '__root__'
+    | '/'
+    | '/$blogid'
+    | '/feed.xml'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/tags/$tag'
+    | '/tags/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogidRoute: typeof BlogidRoute
+  FeedDotxmlRoute: typeof FeedDotxmlRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TagsTagRoute: typeof TagsTagRoute
+  TagsIndexRoute: typeof TagsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feed.xml': {
+      id: '/feed.xml'
+      path: '/feed.xml'
+      fullPath: '/feed.xml'
+      preLoaderRoute: typeof FeedDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$blogid': {
       id: '/$blogid'
       path: '/$blogid'
@@ -65,12 +158,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tags/': {
+      id: '/tags/'
+      path: '/tags'
+      fullPath: '/tags/'
+      preLoaderRoute: typeof TagsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tags/$tag': {
+      id: '/tags/$tag'
+      path: '/tags/$tag'
+      fullPath: '/tags/$tag'
+      preLoaderRoute: typeof TagsTagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogidRoute: BlogidRoute,
+  FeedDotxmlRoute: FeedDotxmlRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TagsTagRoute: TagsTagRoute,
+  TagsIndexRoute: TagsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

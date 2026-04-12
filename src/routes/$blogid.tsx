@@ -62,26 +62,34 @@ function BlogPost() {
           <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
             {post.title}
           </h1>
-          {(formattedDate || post.tags.length > 0) && (
-            <div className="mt-3 flex flex-wrap items-center gap-x-2">
-              {formattedDate && (
-                <time className="text-sm text-gray-400 dark:text-gray-500">
-                  {formattedDate}
-                </time>
-              )}
-              {formattedDate && post.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap items-center gap-x-2">
+            {formattedDate && (
+              <time className="text-sm text-gray-400 dark:text-gray-500">
+                {formattedDate}
+              </time>
+            )}
+            {formattedDate && (
+              <>
                 <span className="text-gray-300 dark:text-gray-600">·</span>
-              )}
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm text-gray-400 dark:text-gray-500"
-                >
-                  #{tag}
+                <span className="text-sm text-gray-400 dark:text-gray-500">
+                  {post.readingTime} min read
                 </span>
-              ))}
-            </div>
-          )}
+              </>
+            )}
+            {post.tags.length > 0 && (
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+            )}
+            {post.tags.map((tag) => (
+              <Link
+                key={tag}
+                to="/tags/$tag"
+                params={{ tag }}
+                className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
         </div>
       </header>
 
