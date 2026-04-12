@@ -95,14 +95,10 @@ export function getPost(slug: string): Post | undefined {
   return loadPosts().find((p) => p.slug === slug);
 }
 
-export function getAllTags(): { tag: string; count: number }[] {
-  const counts = new Map<string, number>();
-  for (const post of loadPosts()) {
-    for (const tag of post.tags) {
-      counts.set(tag, (counts.get(tag) || 0) + 1);
-    }
-  }
-  return [...counts.entries()]
-    .map(([tag, count]) => ({ tag, count }))
-    .sort((a, b) => b.count - a.count);
+export function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }

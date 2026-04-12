@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { siteConfig } from "@config";
-import { getPost, getPosts } from "@/lib/posts";
+import { getPost, getPosts, formatDate } from "@/lib/posts";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
@@ -24,14 +24,6 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   component: BlogPost,
 });
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 function BlogPost() {
   const { slug } = Route.useParams();

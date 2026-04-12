@@ -1,18 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { siteConfig } from "@config";
-import { getPosts } from "@/lib/posts";
+import { getPosts, formatDate } from "@/lib/posts";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 function HomePage() {
   const posts = getPosts();
@@ -22,14 +14,12 @@ function HomePage() {
       {/* Hero */}
       <section className="bg-gray-50 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div>
-            <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
-              {siteConfig.name}
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              {siteConfig.bio}
-            </p>
-          </div>
+          <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
+            {siteConfig.name}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            {siteConfig.bio}
+          </p>
         </div>
       </section>
 
