@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { siteConfig } from "@config";
 import { getPost, getPosts, formatDate } from "@/lib/posts";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/$blogid")({
   head: ({ params }) => {
-    const post = getPost(params.slug);
+    const post = getPost(params.blogid);
     if (!post) return {};
     return {
       meta: [
@@ -26,8 +26,8 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPost() {
-  const { slug } = Route.useParams();
-  const post = getPost(slug);
+  const { blogid } = Route.useParams();
+  const post = getPost(blogid);
 
   if (!post) {
     return (
@@ -46,7 +46,7 @@ function BlogPost() {
   }
 
   const allPosts = getPosts();
-  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
+  const currentIndex = allPosts.findIndex((p) => p.slug === blogid);
   const prevPost =
     currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
   const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
@@ -83,7 +83,7 @@ function BlogPost() {
       {/* Content */}
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div
-          className="prose prose-gray dark:prose-invert mx-auto max-w-none prose-headings:tracking-tight prose-a:text-gray-900 dark:prose-a:text-gray-100"
+          className="prose prose-gray dark:prose-invert prose-headings:tracking-tight"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
@@ -97,8 +97,8 @@ function BlogPost() {
                     Previous
                   </p>
                   <Link
-                    to="/blog/$slug"
-                    params={{ slug: prevPost.slug }}
+                    to="/$blogid"
+                    params={{ blogid: prevPost.slug }}
                     className="mt-2 inline-block text-sm font-medium text-gray-900 hover:opacity-70 dark:text-gray-100"
                   >
                     {prevPost.title}
@@ -113,8 +113,8 @@ function BlogPost() {
                     Next
                   </p>
                   <Link
-                    to="/blog/$slug"
-                    params={{ slug: nextPost.slug }}
+                    to="/$blogid"
+                    params={{ blogid: nextPost.slug }}
                     className="mt-2 inline-block text-sm font-medium text-gray-900 hover:opacity-70 dark:text-gray-100"
                   >
                     {nextPost.title}

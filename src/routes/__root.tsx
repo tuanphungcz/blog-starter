@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import type { QueryClient } from "@tanstack/react-query";
 import {
-  createRootRouteWithContext,
+  createRootRoute,
   HeadContent,
   Link,
   Outlet,
@@ -11,9 +10,7 @@ import {
 import { siteConfig } from "@config";
 import appCss from "@/index.css?url";
 
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient;
-}>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },

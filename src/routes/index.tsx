@@ -39,8 +39,8 @@ function HomePage() {
                 <article key={post.slug} className="group py-8 sm:py-12">
                   <h3 className="text-base font-bold text-gray-900 transition-opacity group-hover:opacity-70 dark:text-gray-100">
                     <Link
-                      to="/blog/$slug"
-                      params={{ slug: post.slug }}
+                      to="/$blogid"
+                      params={{ blogid: post.slug }}
                     >
                       {post.title}
                     </Link>
@@ -70,8 +70,8 @@ function HomePage() {
                   )}
                   <div className="mt-6">
                     <Link
-                      to="/blog/$slug"
-                      params={{ slug: post.slug }}
+                      to="/$blogid"
+                      params={{ blogid: post.slug }}
                       className="inline-flex items-center text-sm text-gray-500 transition-colors group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-100"
                     >
                       Read more
