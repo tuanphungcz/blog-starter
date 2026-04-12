@@ -5,7 +5,6 @@
 
 @theme inline {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-heading: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 

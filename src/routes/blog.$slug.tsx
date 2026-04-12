@@ -40,7 +40,7 @@ function BlogPost() {
   if (!post) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
-        <h1 className="font-heading text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
           Post not found
         </h1>
         <Link
@@ -67,7 +67,7 @@ function BlogPost() {
           <time className="text-sm font-medium text-gray-500 dark:text-gray-400">
             {formatDate(post.date)}
           </time>
-          <h1 className="font-heading mt-4 text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
+          <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
             {post.title}
           </h1>
           {post.tags.length > 0 && (
@@ -88,7 +88,7 @@ function BlogPost() {
       {/* Content */}
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div
-          className="prose prose-gray dark:prose-invert mx-auto max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-a:text-gray-900 dark:prose-a:text-gray-100"
+          className="prose prose-gray dark:prose-invert mx-auto max-w-none prose-headings:tracking-tight prose-a:text-gray-900 dark:prose-a:text-gray-100"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
