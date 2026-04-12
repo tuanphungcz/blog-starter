@@ -1,12 +1,11 @@
-name = "blog-starter"
+name = "markdown-blog-starter"
 main = "@tanstack/react-start/server-entry"
 compatibility_date = "2025-09-02"
 compatibility_flags = ["nodejs_compat"]
 
-# Uncomment and edit to use a custom domain:
-# routes = [
-#   { pattern = "blog.yourdomain.com/*", zone_name = "yourdomain.com" }
-# ]
+routes = [
+  { pattern = "markdown-blog-starter.tuanph.com/*", zone_name = "tuanph.com" }
+]
 
 [observability]
 enabled = true
