@@ -84,7 +84,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <body className="bg-white font-sans text-gray-900 dark:bg-gray-950 dark:text-gray-100">
         <div className="flex min-h-screen flex-col">
           {/* Navigation */}
-          <header className="border-b border-gray-100 dark:border-gray-800/50">
+          <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-lg dark:border-gray-800/50 dark:bg-gray-950/80">
             <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
               <Link
                 to="/"
