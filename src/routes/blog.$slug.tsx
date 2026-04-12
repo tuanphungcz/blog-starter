@@ -27,7 +27,6 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("en-US", {
-    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -40,9 +39,16 @@ function BlogPost() {
 
   if (!post) {
     return (
-      <div>
-        <h1>Post not found</h1>
-        <Link to="/">Go back home</Link>
+      <div className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
+        <h1 className="font-heading text-2xl font-bold text-gray-900 dark:text-gray-100">
+          Post not found
+        </h1>
+        <Link
+          to="/"
+          className="mt-4 inline-block text-sm font-medium text-gray-500 underline underline-offset-2 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        >
+          Go back home
+        </Link>
       </div>
     );
   }
@@ -56,48 +62,95 @@ function BlogPost() {
   return (
     <article>
       {/* Header */}
-      <header>
-        <time>{formatDate(post.date)}</time>
-        <h1>{post.title}</h1>
-        {post.tags.length > 0 && (
-          <div>
-            {post.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-        )}
+      <header className="bg-gray-50 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <time className="text-sm font-medium text-gray-500 dark:text-gray-400">
+            {formatDate(post.date)}
+          </time>
+          <h1 className="font-heading mt-4 text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
+            {post.title}
+          </h1>
+          {post.tags.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-bold text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Content */}
-      <div
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div
+          className="prose prose-gray dark:prose-invert mx-auto max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-a:text-gray-900 dark:prose-a:text-gray-100"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
 
-      {/* Footer: prev/next + back */}
-      <footer>
-        <div>
-          {prevPost && (
-            <div>
-              <p>Previous</p>
-              <Link to="/blog/$slug" params={{ slug: prevPost.slug }}>
-                {prevPost.title}
-              </Link>
+        {/* Footer: prev/next + back */}
+        <footer className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
+          <div className="flex items-start justify-between gap-8">
+            <div className="flex-1">
+              {prevPost && (
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                    Previous
+                  </p>
+                  <Link
+                    to="/blog/$slug"
+                    params={{ slug: prevPost.slug }}
+                    className="mt-2 inline-block text-sm font-medium text-gray-900 hover:opacity-70 dark:text-gray-100"
+                  >
+                    {prevPost.title}
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-          {nextPost && (
-            <div>
-              <p>Next</p>
-              <Link to="/blog/$slug" params={{ slug: nextPost.slug }}>
-                {nextPost.title}
-              </Link>
+            <div className="flex-1 text-right">
+              {nextPost && (
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                    Next
+                  </p>
+                  <Link
+                    to="/blog/$slug"
+                    params={{ slug: nextPost.slug }}
+                    className="mt-2 inline-block text-sm font-medium text-gray-900 hover:opacity-70 dark:text-gray-100"
+                  >
+                    {nextPost.title}
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        <div>
-          <Link to="/">← Back to blog</Link>
-        </div>
-      </footer>
+          </div>
+          <div className="mt-8">
+            <Link
+              to="/"
+              className="group inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+            >
+              <svg
+                className="mr-2 h-4 w-4 transform transition-transform duration-100 group-hover:-translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
+              Back to all posts
+            </Link>
+          </div>
+        </footer>
+      </div>
     </article>
   );
 }
