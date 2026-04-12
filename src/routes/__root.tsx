@@ -106,7 +106,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
             <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
               <Link
                 to="/"
-                className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
+                className="text-base font-bold text-gray-900 dark:text-gray-100"
               >
                 {siteConfig.title}
               </Link>

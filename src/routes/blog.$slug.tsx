@@ -64,24 +64,27 @@ function BlogPost() {
       {/* Header */}
       <header className="bg-gray-50 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <time className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            {formatDate(post.date)}
-          </time>
-          <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
+          <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
             {post.title}
           </h1>
-          {post.tags.length > 0 && (
-            <div className="mt-6 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-bold text-gray-500 dark:bg-gray-800 dark:text-gray-400"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+          <div className="mt-3 flex flex-wrap items-center gap-x-2">
+            <time className="text-sm text-gray-400 dark:text-gray-500">
+              {formatDate(post.date)}
+            </time>
+            {post.tags.length > 0 && (
+              <>
+                <span className="text-gray-300 dark:text-gray-600">·</span>
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-sm text-gray-400 dark:text-gray-500"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </>
+            )}
+          </div>
         </div>
       </header>
 
@@ -98,7 +101,7 @@ function BlogPost() {
             <div className="flex-1">
               {prevPost && (
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     Previous
                   </p>
                   <Link
@@ -114,7 +117,7 @@ function BlogPost() {
             <div className="flex-1 text-right">
               {nextPost && (
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     Next
                   </p>
                   <Link
@@ -131,7 +134,7 @@ function BlogPost() {
           <div className="mt-8">
             <Link
               to="/"
-              className="group inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              className="group inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
               <svg
                 className="mr-2 h-4 w-4 transform transition-transform duration-100 group-hover:-translate-x-1"

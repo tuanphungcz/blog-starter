@@ -6,6 +6,14 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function HomePage() {
   const posts = getPosts();
 
@@ -15,10 +23,10 @@ function HomePage() {
       <section className="bg-gray-50 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div>
-            <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
+            <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
               {siteConfig.name}
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-gray-500 sm:text-lg sm:leading-relaxed lg:text-xl lg:leading-relaxed dark:text-gray-400">
+            <p className="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
               {siteConfig.bio}
             </p>
           </div>
@@ -39,7 +47,7 @@ function HomePage() {
             <div className="-my-8 divide-y divide-gray-200 sm:-my-12 dark:divide-gray-800">
               {posts.map((post) => (
                 <article key={post.slug} className="group py-8 sm:py-12">
-                  <h3 className="text-xl font-bold leading-snug text-gray-900 transition-opacity group-hover:opacity-70 dark:text-gray-100">
+                  <h3 className="text-base font-bold text-gray-900 transition-opacity group-hover:opacity-70 dark:text-gray-100">
                     <Link
                       to="/blog/$slug"
                       params={{ slug: post.slug }}
@@ -47,6 +55,24 @@ function HomePage() {
                       {post.title}
                     </Link>
                   </h3>
+                  <div className="mt-2 flex flex-wrap items-center gap-x-2">
+                    <time className="text-sm text-gray-400 dark:text-gray-500">
+                      {formatDate(post.date)}
+                    </time>
+                    {post.tags.length > 0 && (
+                      <>
+                        <span className="text-gray-300 dark:text-gray-600">·</span>
+                        {post.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-sm text-gray-400 dark:text-gray-500"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </>
+                    )}
+                  </div>
                   {post.summary && (
                     <p className="mt-4 text-base leading-relaxed text-gray-500 dark:text-gray-400">
                       {post.summary}
@@ -56,7 +82,7 @@ function HomePage() {
                     <Link
                       to="/blog/$slug"
                       params={{ slug: post.slug }}
-                      className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 transition-colors group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-100"
+                      className="inline-flex items-center text-sm text-gray-500 transition-colors group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-100"
                     >
                       Read more
                       <svg
