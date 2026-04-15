@@ -41,10 +41,18 @@ If you want to stop paying monthly but keep a nice GUI, the obvious next step is
 | App | License | What you actually pay |
 |-----|---------|-----------------------|
 | [**Handy**](https://github.com/cjpais/Handy) | Open source | $0. Download and run. |
-| [**OpenWhispr**](https://openwhispr.com/) | Open source | $0. |
+| [**OpenWhispr**](https://github.com/OpenWhispr/openwhispr) | Open source | $0. Mac + Win + Linux. |
+| [**FluidVoice**](https://github.com/altic-dev/FluidVoice) | GPL v3 | $0. Parakeet + Whisper + Apple Speech. |
+| [**VoiceTypr**](https://github.com/moinulmoin/voicetypr) | Open source | $0. Mac + Windows. |
+| [**TypeWhisper**](https://github.com/TypeWhisper/typewhisper-mac) | Open source | $0. Streaming preview. |
+| [**FreeFlow**](https://github.com/zachlatta/freeflow) | Open source | $0. Literally named as the Wispr Flow alternative. |
+| [**Open-Wispr**](https://github.com/human37/open-wispr) | Open source | $0. Popular with Claude Code users. |
 | [**VoiceInk**](https://github.com/Beingpax/VoiceInk) | GPL v3 (!) | $25 / $39 / $49 for the prebuilt binary (1 / 2 / 3 Macs). **Or $0** if you clone the repo and build it yourself. |
+| [**Sotto**](https://sotto.to/) | Proprietary | $49 one-time, 3 devices. Polished, not open source. |
 
 VoiceInk is the interesting one. The source is on GitHub under GPL v3 — fully open. The license lets you build and use it for free. But the developer sells the compiled binary on the website, and that's how they fund the project. It's a completely legitimate model, and "open source" does not automatically mean "free binary." Worth naming, because people ask.
+
+Sotto is the other side of the coin — not open source, but a one-time $49 price for a genuinely polished Mac-native app (WhisperKit + Parakeet + optional cloud). If you want a paid product without a subscription, it's a reasonable answer.
 
 I tried **Handy**. It's free, uses whisper.cpp under the hood, and lets you pick between Whisper, Parakeet v2/v3, and Canary 1B v2. I benchmarked the three model families on my typical Czech+English mixed audio:
 
@@ -106,9 +114,10 @@ If you want to send text with your voice on a Mac, here's what the year actually
 | Option | Year 1 | Year 2+ | Notes |
 |--------|--------|---------|-------|
 | Wispr Flow Pro | $144–180 | $144–180 | Polished, cloud |
+| Sotto | $49 | $0 | One-time, polished, 3 devices |
 | VoiceInk (binary) | $25–49 | $0 | One-time, local |
-| VoiceInk (built from source) | $0 | $0 | If you run Xcode |
-| Handy | $0 | $0 | Easiest free path |
+| VoiceInk / FluidVoice (built from source) | $0 | $0 | If you run Xcode |
+| Handy / OpenWhispr / VoiceTypr / FreeFlow | $0 | $0 | Free OSS, pick one |
 | whisper.cpp CLI | $0 | $0 | No GUI, fastest |
 | Groq API (dictation) | ~$1–5 | ~$1–5 | Pennies if personal use |
 
