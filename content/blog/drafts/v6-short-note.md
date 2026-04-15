@@ -114,6 +114,25 @@ Others I did not install but exist: **[Sotto](https://sotto.to/)** ($49 one-time
 
 ---
 
+## The models I tried locally
+
+Handy downloaded four models on my Mac. Here is what I have:
+
+| Model | Size | What it is |
+|-------|------|------------|
+| **[Whisper large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo)** ✅ | 1.5 GB | My primary model. Fast and accurate. |
+| [Whisper large-v3 (q5_0)](https://huggingface.co/ggerganov/whisper.cpp) | 1.0 GB | Smaller quantized Whisper. A good backup. |
+| [NVIDIA Canary 1B v2](https://huggingface.co/nvidia/canary-1b-v2) | 982 MB | Multilingual model. Did not test much. |
+| [NVIDIA Parakeet TDT v3 (int8)](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) ⚠️ | 640 MB | Fastest. But weaker on mixed languages. |
+
+I use **Whisper large-v3-turbo** every day. It handles my Czech + English mixing well.
+
+I also tried **Parakeet**. It is fast and lightweight, but I found it **weaker when I mix Czech with English in the same sentence**. For pure English it is probably great. For how I actually talk — switching between two languages mid-sentence — Whisper wins clearly.
+
+Total disk space for all four models: **~4 GB**. If you only keep Whisper turbo, it is 1.5 GB.
+
+---
+
 ## What Handy is missing
 
 **Streaming preview.** When you speak, Wispr Flow shows the text appearing live. Handy waits until you stop, then pastes. It works, but live preview is a nicer feel.
