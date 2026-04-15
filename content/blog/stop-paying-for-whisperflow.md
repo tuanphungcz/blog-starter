@@ -13,7 +13,7 @@ Your computer can do it for free, locally, and it is fast enough.
 
 ## TL;DR
 
-- **Just use [Handy.computer](https://handy.computer/)** with the **Whisper large-v3-turbo** model if you are on an Apple Silicon Mac.
+- Just use [**Handy.computer**](https://handy.computer/) with the **Whisper large-v3-turbo** model if you are on an Apple Silicon Mac.
 - **WhisperFlow costs $12–15/month.** Your Mac can do the same thing locally, for free.
 - **3 seconds locally vs. 1 second on the cloud** for 42s of audio. 3× slower, but for dictation more than enough.
 - Quality is excellent, including **Czech + English mixed speech**.
@@ -23,11 +23,11 @@ Your computer can do it for free, locally, and it is fast enough.
 
 ## My story, short version
 
-I was on [Wispr Flow](https://wisprflow.ai/)'s free tier. Good product. But I was hitting the 2,000 words/week limit almost every day. The paid plan is $12–15/month, and I just did not want to pay that for something my Mac should be able to do on its own.
+I was on [**Wispr Flow**](https://wisprflow.ai/)'s free tier. Good product. But I was hitting the 2,000 words/week limit almost every day. The paid plan is $12–15/month, and I just did not want to pay that for something my Mac should be able to do on its own.
 
-I looked at one-time purchase apps ([Sotto](https://sotto.to/), [VoiceInk](https://github.com/Beingpax/VoiceInk), [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)). But this market moves fast. I did not want to buy something and then see a better free app next month.
+I looked at one-time purchase apps ([**Sotto**](https://sotto.to/), [**VoiceInk**](https://github.com/Beingpax/VoiceInk), [**MacWhisper**](https://goodsnooze.gumroad.com/l/macwhisper)). But this market moves fast. I did not want to buy something and then see a better free app next month.
 
-So I tried open source. And I realized the apps all still need a model. They either run a local one ([Whisper](https://github.com/openai/whisper), [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3)) on your Mac, or they call a cloud API, usually [Groq](https://groq.com/) because it is the fastest. Groq is great, but you still send your voice to a server.
+So I tried open source. And I realized the apps all still need a model. They either run a local one ([**Whisper**](https://github.com/openai/whisper), [**Parakeet**](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3)) on your Mac, or they call a cloud API, usually [**Groq**](https://groq.com/) because it is the fastest. Groq is great, but you still send your voice to a server.
 
 So I tested local. And it works.
 
@@ -93,31 +93,31 @@ If you are deciding what to switch to, here is what the market actually looks li
 
 | App                                          | Cost                         | Notes                                                     |
 | -------------------------------------------- | ---------------------------- | --------------------------------------------------------- |
-| **[Wispr Flow](https://wisprflow.ai/)** Pro  | $12–15/month ($144–180/year) | Cloud-based, polished. Free tier: 2,000 words/week        |
-| **[Whisper Flow](https://whisperflow.app/)** | $99–299/month                | Different product, confusingly similar name. No free tier |
+| [**Wispr Flow**](https://wisprflow.ai/) Pro  | $12–15/month ($144–180/year) | Cloud-based, polished. Free tier: 2,000 words/week        |
+| [**Whisper Flow**](https://whisperflow.app/) | $99–299/month                | Different product, confusingly similar name. No free tier |
 
 ### One-time purchase
 
-| App                                                           | License     | Cost                         | Notes                                       |
-| ------------------------------------------------------------- | ----------- | ---------------------------- | ------------------------------------------- |
-| **[Sotto](https://sotto.to/)**                                | Proprietary | $49 (3 devices)              | Polished, Mac-native. WhisperKit + Parakeet |
-| **[VoiceInk](https://github.com/Beingpax/VoiceInk)** (binary) | GPL v3      | $25 / $39 / $49 (1/2/3 Macs) | Or $0 if you build from source              |
+| App                                                  | License     | Cost                         | Notes                                       |
+| ---------------------------------------------------- | ----------- | ---------------------------- | ------------------------------------------- |
+| [**Sotto**](https://sotto.to/)                       | Proprietary | $49 (3 devices)              | Polished, Mac-native. WhisperKit + Parakeet |
+| [**VoiceInk**](https://github.com/Beingpax/VoiceInk) | GPL v3      | $25 / $39 / $49 (1/2/3 Macs) | Or $0 if you build from source              |
 
 ### Open source (free)
 
-| App                                                                | ⭐ Stars | License  | Notes                                           |
-| ------------------------------------------------------------------ | -------- | -------- | ----------------------------------------------- |
-| **[Handy](https://github.com/cjpais/Handy)** ✅                    | 20.0k    | MIT      | My daily driver. Most active, wraps whisper.cpp |
-| **[VoiceInk](https://github.com/Beingpax/VoiceInk)** (from source) | 4.6k     | GPL-3.0  | Build with Xcode                                |
-| **[OpenWhispr](https://github.com/OpenWhispr/openwhispr)**         | 2.4k     | MIT      | Mac + Windows + Linux                           |
-| **[FluidVoice](https://github.com/altic-dev/FluidVoice)**          | 1.8k     | GPL-3.0  | Parakeet + Whisper + Apple Speech               |
-| **[FreeFlow](https://github.com/zachlatta/freeflow)**              | 1.3k     | MIT      | Named as the Wispr Flow alternative             |
-| **[TypeWhisper](https://github.com/TypeWhisper/typewhisper-mac)**  | 754      | GPL-3.0  | Has streaming preview                           |
-| **[VoiceTypr](https://github.com/moinulmoin/voicetypr)**           | 361      | AGPL-3.0 | Mac + Windows                                   |
-| **[Open-Wispr](https://github.com/human37/open-wispr)**            | 99       | MIT      | Popular with Claude Code users                  |
-| **[whisper.cpp CLI](https://github.com/ggml-org/whisper.cpp)**     | 48.6k    | MIT      | No GUI, the engine most apps wrap               |
+| App                                                               | ⭐ Stars | License  | Notes                                           |
+| ----------------------------------------------------------------- | -------- | -------- | ----------------------------------------------- |
+| [**Handy**](https://github.com/cjpais/Handy) ✅                   | 20.0k    | MIT      | My daily driver. Most active, wraps whisper.cpp |
+| [**VoiceInk**](https://github.com/Beingpax/VoiceInk)              | 4.6k     | GPL-3.0  | Build with Xcode                                |
+| [**OpenWhispr**](https://github.com/OpenWhispr/openwhispr)        | 2.4k     | MIT      | Mac + Windows + Linux                           |
+| [**FluidVoice**](https://github.com/altic-dev/FluidVoice)         | 1.8k     | GPL-3.0  | Parakeet + Whisper + Apple Speech               |
+| [**FreeFlow**](https://github.com/zachlatta/freeflow)             | 1.3k     | MIT      | Named as the Wispr Flow alternative             |
+| [**TypeWhisper**](https://github.com/TypeWhisper/typewhisper-mac) | 754      | GPL-3.0  | Has streaming preview                           |
+| [**VoiceTypr**](https://github.com/moinulmoin/voicetypr)          | 361      | AGPL-3.0 | Mac + Windows                                   |
+| [**Open-Wispr**](https://github.com/human37/open-wispr)           | 99       | MIT      | Popular with Claude Code users                  |
+| [**whisper.cpp CLI**](https://github.com/ggml-org/whisper.cpp)    | 48.6k    | MIT      | No GUI, the engine most apps wrap               |
 
-_Not an app, but worth mentioning: **[Groq API](https://groq.com/)** — cloud transcription, pennies per hour, free personal tier right now._
+_Not an app, but worth mentioning: [**Groq API**](https://groq.com/) — cloud transcription, pennies per hour, free personal tier right now._
 
 ---
 
@@ -125,12 +125,12 @@ _Not an app, but worth mentioning: **[Groq API](https://groq.com/)** — cloud t
 
 Handy downloaded four models on my Mac. Here is what I have:
 
-| Model                                                                                  | Size   | What it is                                |
-| -------------------------------------------------------------------------------------- | ------ | ----------------------------------------- |
-| **[Whisper large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo)** ✅  | 1.5 GB | My primary model. Fast and accurate.      |
-| [Whisper large-v3 (q5_0)](https://huggingface.co/ggerganov/whisper.cpp)                | 1.0 GB | Smaller quantized Whisper. A good backup. |
-| [NVIDIA Canary 1B v2](https://huggingface.co/nvidia/canary-1b-v2)                      | 982 MB | Multilingual model. Did not test much.    |
-| [NVIDIA Parakeet TDT v3 (int8)](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) ⚠️ | 640 MB | Fastest. But weaker on mixed languages.   |
+| Model                                                                                      | Size   | What it is                                |
+| ------------------------------------------------------------------------------------------ | ------ | ----------------------------------------- |
+| [**Whisper large-v3-turbo**](https://huggingface.co/openai/whisper-large-v3-turbo) ✅      | 1.5 GB | My primary model. Fast and accurate.      |
+| [**Whisper large-v3 (q5_0)**](https://huggingface.co/ggerganov/whisper.cpp)                | 1.0 GB | Smaller quantized Whisper. A good backup. |
+| [**NVIDIA Canary 1B v2**](https://huggingface.co/nvidia/canary-1b-v2)                      | 982 MB | Multilingual model. Did not test much.    |
+| [**NVIDIA Parakeet TDT v3 (int8)**](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) ⚠️ | 640 MB | Fastest. But weaker on mixed languages.   |
 
 I stick with **Whisper large-v3-turbo**. Parakeet is the smallest and fastest, but as the earlier example showed, it trips on Czech + English mixing. For pure English it is probably great.
 
@@ -140,7 +140,7 @@ Total disk space for all four models: **~4 GB**. If you only keep Whisper turbo,
 
 ## How to install Handy
 
-1. **Install [Handy](https://github.com/cjpais/Handy)** — `brew install --cask handy`
+1. Install [**Handy**](https://github.com/cjpais/Handy) — `brew install --cask handy`
 2. Pick the **Whisper large-v3-turbo** model.
 3. Set a hotkey.
 4. **Cancel your subscription.**
@@ -151,7 +151,7 @@ Under 15 minutes. Or just tell an AI agent (Claude Code, Cursor, Codex) to read 
 
 **Streaming preview.** When you speak, Wispr Flow shows the text appearing live. Handy waits until you stop, then pastes. It works, but live preview is a nicer feel.
 
-Someone tried to add it ([PR #864](https://github.com/cjpais/Handy/pull/864)), but it was closed without being merged in February 2026. [TypeWhisper](https://github.com/TypeWhisper/typewhisper-mac) already has streaming preview, so that is on my list to try.
+Someone tried to add it ([**PR #864**](https://github.com/cjpais/Handy/pull/864)), but it was closed without being merged in February 2026. [**TypeWhisper**](https://github.com/TypeWhisper/typewhisper-mac) already has streaming preview, so that is on my list to try.
 
 Also sometimes I talk for a full minute and the audio is lost. It happens rarely. And it happened on Wispr Flow too. Not a local problem, just a general dictation problem.
 

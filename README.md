@@ -4,7 +4,7 @@ A minimal, fast blog built with [TanStack Start](https://tanstack.com/start), [T
 
 **[Live Demo](https://markdown-blog-starter.tuanph.com)**
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tuanphungcz/blog-starter)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tuanphungcz/markdown-blog-starter)
 
 ## Features
 
@@ -19,13 +19,13 @@ A minimal, fast blog built with [TanStack Start](https://tanstack.com/start), [T
 
 ### One-click deploy
 
-Click the **Deploy to Cloudflare** button above. Done. Your blog will be live at `blog-starter.<your-account>.workers.dev`.
+Click the **Deploy to Cloudflare** button above. Done. Your blog will be live at `markdown-blog-starter.<your-account>.workers.dev`.
 
 ### With Claude Code
 
 ```bash
-git clone https://github.com/tuanphungcz/blog-starter
-cd blog-starter
+git clone https://github.com/tuanphungcz/markdown-blog-starter
+cd markdown-blog-starter
 npm install
 ```
 
@@ -34,8 +34,8 @@ Then run `/setup` — Claude will configure your domain, name, socials, and depl
 ### Manual setup
 
 ```bash
-git clone https://github.com/tuanphungcz/blog-starter
-cd blog-starter
+git clone https://github.com/tuanphungcz/markdown-blog-starter
+cd markdown-blog-starter
 npm install
 ```
 

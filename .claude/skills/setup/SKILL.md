@@ -141,7 +141,7 @@ Ask the user:
 
 If YES, follow the custom domain setup (Step 5 below).
 
-If NO, update `site.config.ts` `url` to `https://blog-starter.<account>.workers.dev` and skip to deploy:
+If NO, update `site.config.ts` `url` to `https://markdown-blog-starter.<account>.workers.dev` and skip to deploy:
 
 ```bash
 npm run build && npx wrangler deploy

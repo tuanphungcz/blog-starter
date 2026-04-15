@@ -3,6 +3,20 @@ import { parse as parseYaml } from "yaml";
 
 marked.setOptions({ gfm: true });
 
+marked.use({
+  renderer: {
+    link({ href, title, tokens }) {
+      const text = this.parser.parseInline(tokens);
+      const titleAttr = title ? ` title="${title}"` : "";
+      const external = /^https?:\/\//.test(href);
+      const externalAttrs = external
+        ? ' target="_blank" rel="noopener noreferrer"'
+        : "";
+      return `<a href="${href}"${titleAttr}${externalAttrs}>${text}</a>`;
+    },
+  },
+});
+
 export interface Post {
   slug: string;
   title: string;
