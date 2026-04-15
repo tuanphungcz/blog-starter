@@ -62,7 +62,7 @@ function BlogPost() {
   return (
     <article>
       {/* Header */}
-      <header className="bg-gray-50 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
+      <header className="bg-gray-100 py-12 sm:py-16 lg:py-20 dark:bg-gray-900/50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
             {post.title}
